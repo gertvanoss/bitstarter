@@ -9,7 +9,7 @@ myvalue = data;
 
 
 app.get('/', function(request, response) {
-  response.send(myvalue);
+ response.write(myvalue);
 });
 
 var port = process.env.PORT || 5000;
