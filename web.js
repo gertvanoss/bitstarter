@@ -2,14 +2,9 @@ var express = require('express');
 
 var app = express.createServer(express.logger());
 
-var myvalue = '';
-fs.readFile("index.html", "utf-8", function(error, data){
-myvalue = data;
-});
-
-
 app.get('/', function(request, response) {
- response.write(myvalue);
+var myvalue = new Buffer(25);
+ response.send(fs.readFileSync("index.html"),myvalue.toString();
 });
 
 var port = process.env.PORT || 5000;
