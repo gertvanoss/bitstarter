@@ -58,12 +58,12 @@ var checkHtmlFile = function(htmlfile, checksfile) {
 
 var checkUrlAddress = function(checksfile, callback) {
   var getMyPage = function(result, getMyPage) {
-    if (result instanceof Error) {
+    /*if (result instanceof Error) {
       sys.puts('Error: ' + result.message);
-      this.retry(5000);
+      //this.retry(5000);
     }
     else
-    {
+    {*/
       $ = cheerio.load(result);
     var checks = loadChecks(checksfile).sort();
     var out = {};
@@ -72,7 +72,7 @@ var checkUrlAddress = function(checksfile, callback) {
         out[checks[ii]] = present;
     }
     callback(out);
-    }};
+    };
 return getMyPage;
 };
 
@@ -91,26 +91,20 @@ if(require.main == module) {
         .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
         .option('-u, --url <url>', 'address url')
         .parse(process.argv);
-    if(program.url) {
-    /*var result = rest.get(program.url).on('complete', function(result) {
-       if (result instanceof Error) {
-      sys.puts('Error: ' + result.message);
-      this.retry(5000);
-    } else {
-      return result;
+    if( program.url ) {
+      var printJson = function(check2Json){
+        var outJson = JSON.stringify(check2Json, null, 4);
+        console.log(outJson);
+      };
+    var checkJsonUrl = checkUrlAddress(program.checks, printJson); //new function to check URL
+    rest.get(program.url).on('complete', checkJsonUrl);
+    //console.log("we've printing the webpage only if it is complete in downloading");
     }
-    });*/
-
-    var checkJsonUrl = checkUrlAddress(program.checks, program.url); //new function to check URL
-    //rest.get(program.url).on('complete',getMyPage);
-    console.log("we've printing the webpage only if it is complete in downloading");
-    }
-    else
+    else if (program.file){
     var checkJson = checkHtmlFile(program.file, program.checks);
     var outJson = JSON.stringify(checkJson, null, 4);
     console.log(outJson);
-} else {
+    }} else {
     exports.checkHtmlFile = checkHtmlFile;
-    exports.checkUrlAddress = checkUrlAddress;
 }
 
