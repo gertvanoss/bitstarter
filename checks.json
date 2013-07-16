@@ -1,3 +1,17 @@
 ["h1",
- ".navigation"]
+ ".navigation",
+ ".footer",
+ ".faq",
+ ".section2",
+ ".section1",
+ ".logo",
+ ".blank",
+ ".about",
+ ".heading",
+ ".subheading",
+ ".pitch",
+ ".video",
+ ".thermometer",
+ ".order",
+ ".social"]
 
