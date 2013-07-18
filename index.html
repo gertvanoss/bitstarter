@@ -40,98 +40,225 @@
     }
 
     /* All form factors */
-      body {
-        padding-top: 20px;
-        padding-bottom: 40px;
-      }
-      .container {
-        width: 960px;
-      }
-      p.lead {
-        padding-top: 15px;
-      }
-      .navigation, .pitch, .section1, .section2, .faq, .footer {
-        padding: 10px 0px 10px 0px;
-      }
-      .video, .thermometer, .order, .social {
-        border: 1px dotted;
-        text-align: center;
-      }
-      .video {
-        /* Internal borders have 1px width, thus need to add 4 x 1px to 120px. */
-        height: 124px;
-        line-height: 124px;
-      }
-      .thermometer, .order, .social {
-        /* line-height to vertically center: http://phrogz.net/css/vertical-align/index.html */
-        height: 40px;
-        line-height: 40px;
-      }
-      div.row {
-        border: 1px solid;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row navigation">
-        <div class="span2 logo">
-          Logo
-        </div>
-        <div class="span6 blank">
-          Blank
-        </div>
-        <div class="span4 about">
-          About
-        </div>
+
+    /* Main body and headings */
+    body{
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    }
+    .heading, .subheading {
+      font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      text-align: center;
+    }
+    p.lead {
+      padding-top: 1.5%;
+      font-size: 24px;
+      line-height: 30px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    /* Video pitch and Action */
+    .pitch {
+    padding: 2.5% 0%;
+    }
+    .order {
+      padding: 2% 0%;
+    }
+    .actions {
+      background-color: #343434;
+      padding 3% 0%;
+    }
+    .video, .thermometer, .order, .social, .statistics {
+      text-align: center;
+    }
+    .statistics h3, .statistics p {
+      color: whit;
+    }
+
+    /* Marketing Copy and Footer */
+    .copy {
+      padding-top: 2.5%;
+      padding-bottom: 2.5%;
+      text-align: justify;
+    }
+    .asset {
+      padding: 2.5% 0%;
+    }
+    .footer {
+      color: #cccccc;
+      text-align: 11px;
+    }
+    .footer a {
+      color: #ccccff;
+    }
+  </style>
+</head>
+
+<body>
+  <!--Mobile-friendly navbar adapted from example.-->
+  <!--http://twitter.github.io/bootstrap/examples/starter-template.html-->
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button> 
+        <a class="brand" href="#">Bitstarter</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div> <!--/.nav-collapse--> 
+      </div> <!--container--> 
+    </div> <!--navbar inner--> 
+  </div> <!--navbar--> 
+
+
+  <!--row-fluid inside containers to achieve a resizable layout. 
+  http://blogs.endjin.com/2013/04/tips-for-implementing-responsive-designs-using-bootstrap
+  http://stackoverflow.com/questions/12269335/is-it-ok-to-have-a-row-fluid-inside-a-row/12270322#12270322-->
+  <div class="container">
+    <!--font and paired font of .heading/ .subheading and body from Google Fonts
+    google.com/fonts/specimen/Ubuntu
+    google.com/fonts/specimen/Ubuntu#pairings-->
+    <div class="row-fluid heading">
+      <div class="span12">
+        <h1>Product</h1> 
+      </div> <!--span12--> 
+    </div> <!--rfh--> 
+    <div class="row-fluid subheading">
+      <div class="span12">
+        <!--Special bt for lead par-->
+        <!--http://twitter.github.io/bootstrap/base-css.html#typography-->
+        <p class="lead">One sentence description.</p>
+      </div> <!--span12--> 
+    </div> <!--rfs--> 
+    <div class="row-fluid pitch">
+      <img class="img-polaroid" src="http://placehold.it/480x300">
+    </div> <!--rfp--> 
+    <!--define new actions div to contain statistics, order, and share buttons-->
+    <div class="span5 actions">
+      <div class="span8 offset2">
+        <div class="statistics">
+          <div class="span4">
+            <!--linediv-l and linediv-r result in dividing lines that-->
+            <!--look different in horizontal and vertical layouts,-->
+            <!--illustrating mq.-->
+            <div class="linediv-l">
+              <h3>1000</h3> <p>backers</p>
+            </div> <!--ll--> 
+          </div> <!--span4--> 
+          <div class="span4">
+            <div class="linediv-c">
+              <h3>$6000</h3> <p>$10,000</p>
+            </div> <!--lc--> 
+          </div> <!--s4--> 
+          <div class="span4">
+            <div class="linediv-r">
+              <h3>10</h3> <p>days left</p>
+            </div> <!--lr--> 
+          </div> <!--s4--> 
+        </div> <!--statistics--> 
+      </div> <!--span8--> 
+      <div class="span10 offset1">
+        <!--Bootstrap progress bar-->
+        <!--http://twitter.github.io/bootstrap/components.html#progress-->
+        <div class="thermometer progress active">
+          <div class="bar bar-success" style="width: 60%;"></div>
+          <div class="bar bar-warning" style="width: 40%;"></div>
+        </div> <!--tpa--> 
+      </div> <!--sp 10--> 
+      <div class="span6 offset3 order">
+        <!--standard bootstrap button-->
+        <!--http://twitter.github.io/bootstrap/base-css.html#buttons-->
+        <button class="btn btn-success btn-large">Preorder</button>    
       </div>
-      <div class="row heading">
-        <div class="span12">
-          <h1>Bitstarter Title</h1>
-        </div>
-      </div> 
-      <div class="row subheading">
-        <div class="span12">
-          <p class="lead">This is my first bitstarter project.</p>
-        </div>
+      <div class="span8 offset2 social">
+        <!--social buttons are not incl. in defaul tb-->
+        <!--http://noizwaves.github.io/bootstrap-social-buttons NOTE check -->
+        <button class="btn btn-twitter"><i class="icon-twitter"></i> | Twitter</button>    
+        <button class="btn btn-facebook"><i class="icon-facebook"></i> | Facebook</button>    
       </div>
-      <div class="row pitch">
-        <div class="span6 video">
-          Video
-        </div>
-        <div class="span6">
-          <div class="thermometer">
-            Thermometer
+    </div> <!--span10--> 
+  </div> <!--span5--> 
+
+  <!--vvv marketing copy-->
+  <!--https://developer.mozilla.org/en-US/docs/Web/CSS/text-align-->
+  <!--http://twitter.github.io/bootstrap/base-css.html#images-->
+  <!--http://placehold.it-->
+
+
+  <div class="row-fluid section1">
+    <div class="span5 offset1 asset">
+      <img class="img-polaroid" src="http://placehold.it/480x300">
+    </div>
+    <div class="span5 copy">
+      <p>
+        just some dummy text
+      </p>  
+    </div>
+  </div>
+
+
+
+  <div class="row-fluid section2">
+    <div class="span5 offset1 copy copy-right">
+      <p>
+        just some dummy text again
+      </p>  
+    </div>
+    <div class="span5 asset">
+      <img class="img-polaroid" src="http://placehold.it/480x300">
+    </div>
+  </div>
+
+  <!--for the FAQ a bit of JS-->
+  <!--jquery.js and bootstrap.js as dependencies-->
+  <!--http://twitter.github.io/bootstrap/javascript.html#collapse-->
+  <div class="row-fluid faq">
+    <div class="span10 offset1">
+      <h3>FAQ</h3>
+      <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+              What does FAQ stand for?
+            </a>   
           </div>
-          <div class="order">
-            Order
+          <div id="collapseOne" class="accordion-body collapse">
+            <div class="accordion-inner">
+              Frequently Asked Question   
+            </div>
           </div>
-          <div class="social">
-            Social
+        </div>
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" href="#collapseTwo">
+              A question that is Frequently Asked? How about that.
+            </a>   
           </div>
-        </div>
-      </div>
-      <div class="row section1">
-        <div class="span12">
-          Marketing Section 1
-        </div>
-      </div>
-      <div class="row section2">
-        <div class="span12">
-          Marketing Section 2
-        </div>
-      </div>
-      <div class="row faq">
-        <div class="span12">
-          FAQ
-        </div>
-      </div>
-      <div class="row footer">
-        <div class="span12">
-          Footer
+          <div id="collapseTwo" class="accordion-body collapse">
+            <div class="accordion-inner">
+              A question which is commonly asked by users.
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+  <!--license-->
+  <!--NOTE check-->
+  <div class="row-fluid foo">
+    <div class="span12">
+      <p>This work is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0">CC By-SA 3.0</a>, without alle the cruft that would otherwise be...</p>
+    </div>
+  </div>
+</body>
 </html>
 
